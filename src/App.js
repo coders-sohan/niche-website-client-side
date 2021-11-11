@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
+import AllProducts from "./pages/Products/AllProducts/AllProducts";
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 					</Route>
 					<Route path="/about">
 						<About />
+					</Route>
+					<Route path="/products">
+						<AllProducts />
 					</Route>
 					<Route path="/contact">
 						<Contact />

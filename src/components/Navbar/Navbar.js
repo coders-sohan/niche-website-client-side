@@ -40,6 +40,15 @@ export default function Navbar() {
 					<li className="text-lg font-semibold px-2 py-2">
 						<NavLink
 							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
+							to="/products"
+							activeClassName="bg-gray-100 text-gray-700"
+						>
+							Products
+						</NavLink>
+					</li>
+					<li className="text-lg font-semibold px-2 py-2">
+						<NavLink
+							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 							to="/contact"
 							activeClassName="bg-gray-100 text-gray-700"
 						>
@@ -55,7 +64,11 @@ export default function Navbar() {
 					className="lg:hidden menu-button"
 				>
 					{isSideMenuOpen ? (
-						<img src={CloseIcon} className="w-8 h-8 px-2 mr-3" alt="close"></img>
+						<img
+							src={CloseIcon}
+							className="w-8 h-8 px-2 mr-3"
+							alt="close"
+						></img>
 					) : (
 						<img src={MenuIcon} className="w-8 h-8 px-2 mr-3" alt="menu"></img>
 					)}
@@ -86,6 +99,15 @@ function SideMenu() {
 						activeClassName="bg-gray-100 text-gray-700"
 					>
 						About
+					</NavLink>
+				</li>
+				<li className="text-lg font-semibold px-2 py-2">
+					<NavLink
+						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
+						to="/products"
+						activeClassName="bg-gray-100 text-gray-700"
+					>
+						Products
 					</NavLink>
 				</li>
 				<li className="text-lg font-semibold px-2 py-2">
