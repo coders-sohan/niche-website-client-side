@@ -55,6 +55,24 @@ export default function Navbar() {
 							Contact
 						</NavLink>
 					</li>
+					<li className="text-lg font-semibold px-2 py-2">
+						<NavLink
+							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
+							to="/login"
+							activeClassName="bg-gray-100 text-red-500"
+						>
+							Login
+						</NavLink>
+					</li>
+					<li className="text-lg font-semibold px-2 py-2">
+						<NavLink
+							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
+							to="/register"
+							activeClassName="bg-gray-100 text-red-500"
+						>
+							Register
+						</NavLink>
+					</li>
 				</ul>
 
 				<button
@@ -117,6 +135,24 @@ function SideMenu() {
 						activeClassName="bg-gray-100 text-red-500"
 					>
 						Contact
+					</NavLink>
+				</li>
+				<li className="text-lg font-semibold px-2 py-2">
+					<NavLink
+						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
+						to="/login"
+						activeClassName="bg-gray-100 text-red-500"
+					>
+						Login
+					</NavLink>
+				</li>
+				<li className="text-lg font-semibold px-2 py-2">
+					<NavLink
+						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
+						to="/register"
+						activeClassName="bg-gray-100 text-red-500"
+					>
+						Register
 					</NavLink>
 				</li>
 			</ul>
