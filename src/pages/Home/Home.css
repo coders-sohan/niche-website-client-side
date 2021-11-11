@@ -1,0 +1,14 @@
+.hero-sec {
+	background-image: url("https://template.hasthemes.com/ruiz/ruiz/assets/images/slider/slide-bg-2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 375px){
+    .hero-sec{
+        background-position: left left;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

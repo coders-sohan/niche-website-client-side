@@ -13,7 +13,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav className="fixed w-full h-16 bg-gray-700 text-gray-100 z-50">
+		<nav className="fixed w-full h-16 bg-gray-900 text-gray-100 z-50">
 			<div className="container mx-auto mt-2 flex flex-row justify-between items-center">
 				<NavLink to="/" className="text-xl font-semibold px-3">
 					<img src={logo} className="h-12" alt="logo" />
@@ -23,7 +23,7 @@ export default function Navbar() {
 						<NavLink
 							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 							to="/home"
-							activeClassName="bg-gray-100 text-gray-700"
+							activeClassName="bg-gray-100 text-red-500"
 						>
 							Home
 						</NavLink>
@@ -32,7 +32,7 @@ export default function Navbar() {
 						<NavLink
 							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 							to="/about"
-							activeClassName="bg-gray-100 text-gray-700"
+							activeClassName="bg-gray-100 text-red-500"
 						>
 							About
 						</NavLink>
@@ -41,7 +41,7 @@ export default function Navbar() {
 						<NavLink
 							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 							to="/products"
-							activeClassName="bg-gray-100 text-gray-700"
+							activeClassName="bg-gray-100 text-red-500"
 						>
 							Products
 						</NavLink>
@@ -50,7 +50,7 @@ export default function Navbar() {
 						<NavLink
 							className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 							to="/contact"
-							activeClassName="bg-gray-100 text-gray-700"
+							activeClassName="bg-gray-100 text-red-500"
 						>
 							Contact
 						</NavLink>
@@ -81,13 +81,13 @@ export default function Navbar() {
 
 function SideMenu() {
 	return (
-		<div className="fixed h-screen w-screen sm:w-screen lg:hidden bg-gray-800 top-16">
+		<div className="fixed h-screen w-screen sm:w-screen lg:hidden bg-gray-900 top-16">
 			<ul className="menu-list flex flex-col pt-48 items-center text-xs font-bold">
 				<li className="text-lg font-semibold px-2 py-2">
 					<NavLink
 						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 						to="/home"
-						activeClassName="bg-gray-100 text-gray-700"
+						activeClassName="bg-gray-100 text-red-500"
 					>
 						Home
 					</NavLink>
@@ -96,7 +96,7 @@ function SideMenu() {
 					<NavLink
 						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 						to="/about"
-						activeClassName="bg-gray-100 text-gray-700"
+						activeClassName="bg-gray-100 text-red-500"
 					>
 						About
 					</NavLink>
@@ -105,7 +105,7 @@ function SideMenu() {
 					<NavLink
 						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 						to="/products"
-						activeClassName="bg-gray-100 text-gray-700"
+						activeClassName="bg-gray-100 text-red-500"
 					>
 						Products
 					</NavLink>
@@ -114,7 +114,7 @@ function SideMenu() {
 					<NavLink
 						className="px-2 py-1 rounded hover:bg-gray-50 hover:text-red-600 transition ease-linear"
 						to="/contact"
-						activeClassName="bg-gray-100 text-gray-700"
+						activeClassName="bg-gray-100 text-red-500"
 					>
 						Contact
 					</NavLink>

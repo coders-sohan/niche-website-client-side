@@ -21,6 +21,10 @@ const Contact = () => {
 								scrolling="no"
 								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25230.128086541306!2d-122.41526721703514!3d37.77208437557989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e2c76ec36a9%3A0x88f2bf1dcf074ba5!2sA%26E%20Watches%20(Rolex)!5e0!3m2!1sen!2sbd!4v1636614014954!5m2!1sen!2sbd"
 								loading="lazy"
+								style={{
+									filter: "grayscale(0.9) contrast(1) opacity(0.7)",
+								}}
+								allowFullScreen="true"
 							></iframe>
 							<div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
 								<div className="lg:w-1/2 px-6">

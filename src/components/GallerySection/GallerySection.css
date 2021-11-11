@@ -1,0 +1,16 @@
+.single-banner {
+	overflow: hidden;
+}
+.single-banner a {
+	display: block;
+}
+.single-banner a img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.single-banner a:hover img {
+	-webkit-transform: scale(1.02);
+	transform: scale(1.02);
+}

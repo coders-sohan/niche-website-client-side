@@ -19,8 +19,8 @@ const Product = (props) => {
 						<span className="text-yellow-500 text-xs tracking-widest title-font mb-1">
 							<Rating
 								initialRating={rating}
-								emptySymbol="fa fa-star-o"
-								fullSymbol="fa fa-star"
+								emptySymbol="far fa-star"
+								fullSymbol="fas fa-star"
 								readonly
 							/>{" "}
                             <span className="text-gray-700">({rating})</span>
@@ -30,7 +30,7 @@ const Product = (props) => {
 						<Link to="/products">{name}</Link>
 					</h2>
 					<p className="mt-1">৳ {price}</p>
-					<p className="mt-3 text-gray-500 text-xs tracking-widest title-font">
+					<p className="mt-3 text-green-500 text-xs tracking-widest title-font">
 						{stock} available in stock
 					</p>
 				</div>
