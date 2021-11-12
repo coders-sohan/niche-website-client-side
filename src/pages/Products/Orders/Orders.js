@@ -29,17 +29,16 @@ const Orders = () => {
 			});
 	}, [id]);
 
-    const HandleOrderSubmit = data => {
-        data.product = productDetails;
-        console.log(data);
-        axios.post('http://localhost:5000/orders', data)
-            .then(result => {
-                if (result.data.insertedId) {
-                    alert('Your Order Submitted Successfully');
-                    reset();
-                }
-            })
-    };
+	const HandleOrderSubmit = (data) => {
+		data.product = productDetails;
+		console.log(data);
+		axios.post("http://localhost:5000/orders", data).then((result) => {
+			if (result.data.insertedId) {
+				alert("Your Order Submitted Successfully");
+				reset();
+			}
+		});
+	};
 
 	return (
 		<>
