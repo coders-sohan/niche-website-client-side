@@ -17,7 +17,7 @@ const HeroSection = () => {
 						Expect For The American Part That Is.
 					</p>
 					<p className="text-gray-400 mb-5">
-						Starting At <strong>$1.499.00</strong>
+						Starting At <strong>৳ 3200.00</strong>
 					</p>
 					<div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 items-center">
 						<button className="inline-flex justify-center text-white bg-red-500 border-0 py-2 px-4 transition ease-linear focus:outline-none hover:bg-red-600 rounded text-lg">

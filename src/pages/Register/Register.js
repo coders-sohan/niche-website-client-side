@@ -1,8 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import ErrorAlert from "../../contexts/Alerts/ErrorAlert";
+import SuccessAlert from "../../contexts/Alerts/SuccessAlert";
+import Spinner from "../../contexts/Spinner/Spinner";
+import useAuth from "../../hooks/useAuth";
 import logo from "../../icons/logo.png";
 
 const Register = () => {
+	const [registerData, setRegisterData] = useState([]);
+
+	const { user, error, registerUser, isLoading, googleSignIn } = useAuth();
+
+	const location = useLocation();
+	const history = useHistory();
+
+	const handleOnBlur = (e) => {
+		const field = e.target.name;
+		const value = e.target.value;
+		const newRegisterData = { ...registerData };
+		newRegisterData[field] = value;
+		setRegisterData(newRegisterData);
+	};
+
+	const handleRegisterSubmit = (e) => {
+		e.preventDefault();
+		if (registerData.password !== registerData.password2) {
+			alert("password didn't match");
+			return;
+		}
+		registerUser(
+			registerData.email,
+			registerData.password,
+			registerData.name,
+			history
+		);
+	};
+
+	const handleGoogleSignIn = () => {
+		googleSignIn(location, history);
+	};
+
 	return (
 		<>
 			<div className="bg-gray-900 min-h-screen pt-10 md:pt-5 pb-6 px-2 md:px-0">
@@ -21,75 +59,90 @@ const Register = () => {
 					</div>
 
 					<div className="mt-6">
-						<form className="flex flex-col">
-							<div className="mb-5 pt-3 rounded bg-gray-200">
-								<label
-									className="block text-gray-700 text-sm font-bold mb-2 ml-3"
-									htmlFor="name"
+						{!isLoading && (
+							<form onSubmit={handleRegisterSubmit} className="flex flex-col">
+								<div className="mb-5 pt-3 rounded bg-gray-200">
+									<label
+										className="block text-gray-700 text-sm font-bold mb-2 ml-3"
+										htmlFor="name"
+									>
+										Name
+									</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										onBlur={handleOnBlur}
+										className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
+									/>
+								</div>
+								<div className="mb-5 pt-3 rounded bg-gray-200">
+									<label
+										className="block text-gray-700 text-sm font-bold mb-2 ml-3"
+										htmlFor="email"
+									>
+										Email
+									</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										onBlur={handleOnBlur}
+										required
+										className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
+									/>
+								</div>
+								<div className="mb-5 pt-3 rounded bg-gray-200">
+									<label
+										className="block text-gray-700 text-sm font-bold mb-2 ml-3"
+										htmlFor="password"
+									>
+										Password
+									</label>
+									<input
+										type="password"
+										id="password"
+										name="password"
+										onBlur={handleOnBlur}
+										required
+										className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
+									/>
+								</div>
+								<div className="mb-5 pt-3 rounded bg-gray-200">
+									<label
+										className="block text-gray-700 text-sm font-bold mb-2 ml-3"
+										htmlFor="password2"
+									>
+										Confirm Password
+									</label>
+									<input
+										type="password"
+										id="password2"
+										name="password2"
+										onBlur={handleOnBlur}
+										required
+										className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
+									/>
+								</div>
+								<button
+									className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
+									type="submit"
 								>
-									Name
-								</label>
-								<input
-									type="text"
-									id="name"
-									required
-									className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
-								/>
-							</div>
-							<div className="mb-5 pt-3 rounded bg-gray-200">
-								<label
-									className="block text-gray-700 text-sm font-bold mb-2 ml-3"
-									htmlFor="email"
-								>
-									Email
-								</label>
-								<input
-									type="email"
-									id="email"
-									required
-									className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
-								/>
-							</div>
-							<div className="mb-5 pt-3 rounded bg-gray-200">
-								<label
-									className="block text-gray-700 text-sm font-bold mb-2 ml-3"
-									htmlFor="password1"
-								>
-									Password
-								</label>
-								<input
-									type="password"
-									id="password1"
-									required
-									className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
-								/>
-							</div>
-							<div className="mb-5 pt-3 rounded bg-gray-200">
-								<label
-									className="block text-gray-700 text-sm font-bold mb-2 ml-3"
-									htmlFor="password2"
-								>
-									Confirm Password
-								</label>
-								<input
-									type="password"
-                                    required
-									id="password2"
-									className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
-								/>
-							</div>
-							<button
-								className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
-								type="submit"
-							>
-								Register
-							</button>
-						</form>
+									Register
+								</button>
+							</form>
+						)}
+						{isLoading && <Spinner />}
+						{user?.email && <SuccessAlert login={false} register={true} />}
+						{error && <ErrorAlert error={error} />}
 						<p className="text-center m-0 my-4 text-gray-500 text-base tracking-widest title-font">
 							Or
 						</p>
 						<div className="">
-							<button className="flex items-center mx-auto border py-2 px-4 rounded hover:border-red-300 transition ease-linear">
+							<button
+								onClick={handleGoogleSignIn}
+								className="flex items-center mx-auto border py-2 px-4 rounded hover:border-red-300 transition ease-linear"
+							>
 								{" "}
 								<span className="capitalize text-lg mr-3">google login</span>
 								<svg

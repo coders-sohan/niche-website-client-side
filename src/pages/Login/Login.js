@@ -1,8 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import ErrorAlert from "../../contexts/Alerts/ErrorAlert";
+import SuccessAlert from "../../contexts/Alerts/SuccessAlert";
+import Spinner from "../../contexts/Spinner/Spinner";
+import useAuth from "../../hooks/useAuth";
 import logo from "../../icons/logo.png";
 
 const Login = () => {
+	const [loginData, setLoginData] = useState([]);
+	const { user, error, loginUser, isLoading, googleSignIn, forgotPassword } =
+		useAuth();
+
+	const location = useLocation();
+	const history = useHistory();
+
+	const handleOnBlur = (e) => {
+		const field = e.target.name;
+		const value = e.target.value;
+		const newLoginData = { ...loginData };
+		newLoginData[field] = value;
+		setLoginData(newLoginData);
+	};
+
+	const handleLoginSubmit = (e) => {
+		e.preventDefault();
+		loginUser(loginData.email, loginData.password, location, history);
+	};
+
+	const handleGoogleSignIn = () => {
+		googleSignIn(location, history);
+	};
+
+	const handleForgotpassword = () => {
+		forgotPassword(loginData.email, location, history);
+	};
+
 	return (
 		<>
 			<div className="bg-gray-900 min-h-screen pt-12 md:pt-14 pb-6 px-2 md:px-0">
@@ -21,7 +54,7 @@ const Login = () => {
 					</div>
 
 					<div className="mt-8">
-						<form className="flex flex-col">
+						<form onSubmit={handleLoginSubmit} className="flex flex-col">
 							<div className="mb-5 pt-3 rounded bg-gray-200">
 								<label
 									className="block text-gray-700 text-sm font-bold mb-2 ml-3"
@@ -30,8 +63,10 @@ const Login = () => {
 									Email
 								</label>
 								<input
-									type="text"
+									type="email"
 									id="email"
+									name="email"
+									onBlur={handleOnBlur}
 									required
 									className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
 								/>
@@ -46,12 +81,15 @@ const Login = () => {
 								<input
 									type="password"
 									id="password"
+									name="password"
+									onBlur={handleOnBlur}
 									required
 									className="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-2 border-gray-300 focus:border-red-500 transition duration-500 px-3 pb-3"
 								/>
 							</div>
 							<div className="flex justify-end">
 								<a
+									onClick={handleForgotpassword}
 									href="/"
 									className="text-sm text-red-500 hover:text-red-600 hover:underline mb-5"
 								>
@@ -65,11 +103,17 @@ const Login = () => {
 								Log In
 							</button>
 						</form>
+						{isLoading && <Spinner />}
+						{user?.email && <SuccessAlert login={true} register={false} />}
+						{error && <ErrorAlert error={error} />}
 						<p className="text-center m-0 my-6 text-gray-500 text-base tracking-widest title-font">
 							Or
 						</p>
 						<div className="">
-							<button className="flex items-center mx-auto border py-2 px-4 rounded hover:border-red-300 transition ease-linear">
+							<button
+								onClick={handleGoogleSignIn}
+								className="flex items-center mx-auto border py-2 px-4 rounded hover:border-red-300 transition ease-linear"
+							>
 								{" "}
 								<span className="capitalize text-lg mr-3">google login</span>
 								<svg

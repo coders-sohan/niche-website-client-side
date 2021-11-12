@@ -24,7 +24,6 @@ const Contact = () => {
 								style={{
 									filter: "grayscale(0.9) contrast(1) opacity(0.7)",
 								}}
-								allowFullScreen="true"
 							></iframe>
 							<div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
 								<div className="lg:w-1/2 px-6">
