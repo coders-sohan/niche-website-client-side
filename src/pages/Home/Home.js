@@ -4,6 +4,7 @@ import GallerySection from "../../components/GallerySection/GallerySection";
 import HeroSection from "../../components/HeroSection/HeroSection";
 import Navbar from "../../components/Navbar/Navbar";
 import Product from "../Products/Product/Product";
+import Reviews from "../../components/Reviews/Reviews";
 import "./Home.css";
 
 const Home = () => {
@@ -48,6 +49,9 @@ const Home = () => {
 				</section>
 				<section className="container mx-auto py-16">
 					<GallerySection imgOne={img03} imgTwo={img04} />
+				</section>
+				<section className="container mx-auto py-16">
+					<Reviews />
 				</section>
 				<Footer />
 			</div>

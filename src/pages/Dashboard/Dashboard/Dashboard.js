@@ -17,7 +17,8 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProducts from "../AddProducts/AddProducts";
 import AddReviews from "../AddReviews/AddReviews";
 import Orders from "../Orders/Orders";
-import ManageAllProducts from "../ManageAllProducts/MannageAllProducts";
+import ManageAllProducts from "../ManageAllProducts/ManageAllProducts";
+import Pay from "../Pay/Pay";
 
 const drawerWidth = 200;
 
@@ -176,7 +177,7 @@ const Dashboard = () => {
 						<Route exact path={path}>
 							<Orders></Orders>
 						</Route>
-						<Route path={`${path}/pay`}>{/* <Pay></Pay> */}</Route>
+						<Route path={`${path}/pay`}><Pay></Pay></Route>
 						<Route path={`${path}/addReviews`}>
 							<AddReviews></AddReviews>
 						</Route>
