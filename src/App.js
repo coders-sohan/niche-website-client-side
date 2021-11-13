@@ -4,13 +4,13 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import AllProducts from "./pages/Products/AllProducts/AllProducts";
 import Orders from "./pages/Products/Orders/Orders";
 import Register from "./pages/Register/Register";
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 
 function App() {
 	return (
@@ -27,9 +27,9 @@ function App() {
 						<Route path="/about">
 							<About />
 						</Route>
-						{/* <PrivateRoute path="/dashboard">
+						<PrivateRoute path="/dashboard">
 							<Dashboard />
-						</PrivateRoute> */}
+						</PrivateRoute>
 						<PrivateRoute path="/products">
 							<AllProducts />
 						</PrivateRoute>

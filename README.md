@@ -1,15 +1,17 @@
-# Getting Started with Create React App
+# MOWAT Inc. - A E-commerce watch selling website (Client-side)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MOWAT is a E-commerce watch selling website.
 
-## Available Scripts
+[Visit our website](https://niche-product-website-auth.web.app)
 
-In the project directory, you can run:
+## About the website -
 
-### `yarn start`
+- MOWAT is E-commerce watch selling website
+- With the help of our website you can find best watch
+- If you have any special query you can contact with us.
+- We have reputation for making you satisfied.
+- From our website you can know our previous clients feedback.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Author
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Sohan](https://github.com/coders-sohan)

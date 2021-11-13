@@ -14,7 +14,7 @@ const Product = (props) => {
 				<div className="mt-4 h-44">
 					<div className="flex lg:flex-row sm:flex-col justify-between items-center">
 						<h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-							{details.modelNumber}
+							{details?.modelNumber}
 						</h3>
 						<span className="text-yellow-500 text-xs tracking-widest title-font mb-1">
 							<Rating

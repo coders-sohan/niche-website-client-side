@@ -9,6 +9,7 @@ import {
 	onAuthStateChanged,
 	updateProfile,
 	sendPasswordResetEmail,
+	getIdToken,
 	signOut,
 } from "firebase/auth";
 
@@ -19,9 +20,22 @@ const useFirebase = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [user, setUser] = useState({});
 	const [error, setError] = useState("");
+	const [admin, setAdmin] = useState(false);
+	const [token, setToken] = useState("");
 
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
+
+	const saveUser = (email, name, method) => {
+		const user = { email, name };
+		fetch("http://localhost:5000/users", {
+			method: method,
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify(user),
+		}).then();
+	};
 
 	const registerUser = (email, password, name, history) => {
 		setIsLoading(true);
@@ -30,6 +44,8 @@ const useFirebase = () => {
 				setError("");
 				const newUser = { email, displayName: name };
 				setUser(newUser);
+				// save user to database
+				saveUser(email, name, "POST");
 				// send name to firebases
 				updateProfile(auth.currentUser, {
 					displayName: name,
@@ -72,6 +88,7 @@ const useFirebase = () => {
 				const destination = location?.state?.from || "/";
 				history.replace(destination);
 				setError("");
+				saveUser(result.user.email, result.user.displayName, "PUT");
 			})
 			.catch((error) => {
 				setError(error.message);
@@ -99,13 +116,22 @@ const useFirebase = () => {
 			if (user) {
 				// const uid = user.uid;
 				setUser(user);
+				getIdToken(user).then((idToken) => {
+					setToken(idToken);
+				});
 			} else {
 				setUser({});
 			}
 			setIsLoading(false);
 		});
 		return () => unsubscribe;
-	}, []);
+	}, [auth]);
+
+	useEffect(() => {
+		fetch(`http://localhost:5000/users/${user.email}`)
+			.then((res) => res.json())
+			.then((data) => setAdmin(data.admin));
+	}, [user.email]);
 
 	const logout = () => {
 		setIsLoading(true);
@@ -128,6 +154,8 @@ const useFirebase = () => {
 		loginUser,
 		googleSignIn,
 		forgotPassword,
+		admin,
+		token,
 		logout,
 	};
 };
