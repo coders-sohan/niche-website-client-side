@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/data`)
+		fetch(`https://salty-river-06883.herokuapp.com/data`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
 	}, []);
@@ -21,7 +21,7 @@ const ManageAllOrders = () => {
 	const handleDeleteProduct = (id) => {
 		const proceed = window.confirm("Are you sure, you want to delete?");
 		if (proceed) {
-			const url = `http://localhost:5000/data/${id}`;
+			const url = `https://salty-river-06883.herokuapp.com/data/${id}`;
 			console.log(url);
 			fetch(url, {
 				method: "DELETE",

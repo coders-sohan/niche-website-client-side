@@ -18,7 +18,7 @@ const Orders = () => {
 	const [productDetails, setProductDetails] = useState({});
 
 	useEffect(() => {
-		const url = `http://localhost:5000/data/${id}`;
+		const url = `https://salty-river-06883.herokuapp.com/data/${id}`;
 		axios
 			.get(url)
 			.then((result) => {
@@ -32,12 +32,14 @@ const Orders = () => {
 	const HandleOrderSubmit = (data) => {
 		data.product = productDetails;
 		console.log(data);
-		axios.post("http://localhost:5000/orders", data).then((result) => {
-			if (result.data.insertedId) {
-				alert("Your Order Submitted Successfully");
-				reset();
-			}
-		});
+		axios
+			.post("https://salty-river-06883.herokuapp.com/orders", data)
+			.then((result) => {
+				if (result.data.insertedId) {
+					alert("Your Order Submitted Successfully");
+					reset();
+				}
+			});
 	};
 
 	return (

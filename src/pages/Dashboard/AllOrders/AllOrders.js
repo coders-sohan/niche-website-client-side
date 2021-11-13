@@ -14,7 +14,7 @@ const AllOrders = () => {
 	const { token } = useAuth();
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/orders/allOrders`)
+		fetch(`https://salty-river-06883.herokuapp.com/orders/allOrders`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
 	}, []);
@@ -23,7 +23,7 @@ const AllOrders = () => {
 	const handleCancelProduct = (id) => {
 		const proceed = window.confirm("Are you sure, you want to cancel?");
 		if (proceed) {
-			const url = `http://localhost:5000/orders/${id}`;
+			const url = `https://salty-river-06883.herokuapp.com/orders/${id}`;
 			console.log(url);
 			fetch(url, {
 				method: "DELETE",

@@ -19,7 +19,7 @@ const AddProducts = () => {
 
 		const newProduct = { name, price, img, desc, stock };
 
-		fetch("http://localhost:5000/data", {
+		fetch("https://salty-river-06883.herokuapp.com/data", {
 			method: "POST",
 			headers: {
 				authorization: `Bearer ${token}`,

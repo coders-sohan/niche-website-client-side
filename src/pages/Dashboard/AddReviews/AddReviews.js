@@ -17,7 +17,7 @@ const AddReviews = () => {
 
 		const newService = { name, rating, img, desc };
 
-		fetch("http://localhost:5000/reviews", {
+		fetch("https://salty-river-06883.herokuapp.com/reviews", {
 			method: "POST",
 			headers: {
 				authorization: `Bearer ${token}`,
