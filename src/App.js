@@ -4,6 +4,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
@@ -26,6 +27,9 @@ function App() {
 						<Route path="/about">
 							<About />
 						</Route>
+						{/* <PrivateRoute path="/dashboard">
+							<Dashboard />
+						</PrivateRoute> */}
 						<PrivateRoute path="/products">
 							<AllProducts />
 						</PrivateRoute>
