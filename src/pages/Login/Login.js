@@ -40,7 +40,7 @@ const Login = () => {
 		<>
 			<div className="bg-gray-900 min-h-screen pt-12 md:pt-14 pb-6 px-2 md:px-0">
 				<div className="max-w-lg mx-auto">
-					<Link to="/" className="text-xl font-semibold px-3">
+					<Link to="/home" className="text-xl font-semibold px-3">
 						<img src={logo} className="h-16 mx-auto" alt="logo" />
 					</Link>
 				</div>

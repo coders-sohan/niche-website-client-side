@@ -27,7 +27,7 @@ const Product = (props) => {
 						</span>
 					</div>
 					<h2 className="text-red-600 hover:text-gray-500 transition ease-linear title-font text-lg font-medium py-2">
-						<Link to={`/product/details/${_id}`}>
+						<Link to={`/product/${_id}`}>
 							<span>{name}</span>
 						</Link>
 					</h2>

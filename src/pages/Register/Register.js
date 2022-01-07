@@ -45,7 +45,7 @@ const Register = () => {
 		<>
 			<div className="bg-gray-900 min-h-screen pt-10 md:pt-5 pb-6 px-2 md:px-0">
 				<div className="max-w-lg mx-auto">
-					<Link to="/" className="text-xl font-semibold px-3">
+					<Link to="/home" className="text-xl font-semibold px-3">
 						<img src={logo} className="h-16 mx-auto" alt="logo" />
 					</Link>
 				</div>
